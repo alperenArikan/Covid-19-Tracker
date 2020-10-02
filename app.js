@@ -33,7 +33,7 @@ function getTableStatistics(){
 
             countryStatisticsTable.innerHTML += `
             <tr>
-                <th scope="row" class="text-muted"><img src="${flag}"/>  (${country})</th>
+                <th  scope="row" class=" text-left text-muted"><img src="${flag}"/>  (${country})</th>
                 <td>${totalCases}</td>
                 <td>${recovered}</td>
                 <td>${deaths}</td>
