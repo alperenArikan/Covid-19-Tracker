@@ -8,6 +8,24 @@ countrySearchForm.addEventListener("submit",getSpecsificData);
 function getSpecsificData(e){
     const searchedCountry = document.getElementById("searchedCountry").value;
 
+    if(searchedCountry ===""){
+        
+        countryStatisticCol.innerHTML=` 
+            
+        <div class="col-md-12">
+            <div class="card card-cascade text-center p-4">
+                <div class="view view-cascade overlay">
+                <i class="fas fa-question fa-5x pink-text"></i>
+                
+                </div>
+                <div class="card-body card-body-cascade">
+                <p class="card-text">Hmm.. You forgot something...Country!!</p>
+                </div>
+            </div>
+        </div>
+        `
+        return;
+    }
     fetch(`https://disease.sh/v3/covid-19/countries/${searchedCountry}`)
     .then(function(response){
         if(response.status == 404){
