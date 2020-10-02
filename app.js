@@ -5,7 +5,17 @@ const countryStatisticsTable = document.getElementById("countryTableBody");
 
 countrySearchForm.addEventListener("submit",getSpecsificData);
 document.addEventListener("DOMContentLoaded",getTotalCases);
-document.addEventListener("DOMContentLoaded", getTableStatistics);
+document.addEventListener("DOMContentLoaded", getTableStatistics(10));
+
+for(i=0; i<3; i++){
+    const countryNumberToShow = document.querySelectorAll(".custom-control-input")[i].addEventListener("input",changeCountryNumberToShow);
+}
+
+function changeCountryNumberToShow(e){
+    const countryNumber = this.value;
+    countryStatisticsTable.innerHTML ="";
+    getTableStatistics(countryNumber);
+}
 
 function getTotalCases(){
     fetch("https://disease.sh/v3/covid-19/all")
@@ -18,13 +28,13 @@ function getTotalCases(){
     })
 }
 
-function getTableStatistics(){
+function getTableStatistics(number){
     fetch("https://disease.sh/v3/covid-19/countries?sort=cases")
     .then(response =>{
         return response.json();
     })
     .then(data => {
-        for(i=0; i<10; i++){
+        for(i=0; i<number; i++){
             const flag = data[i].countryInfo.flag;
             const country = data[i].country;
             const totalCases = new Intl.NumberFormat().format(data[i].cases); 
