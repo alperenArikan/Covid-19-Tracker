@@ -24,6 +24,7 @@ function getSpecsificData(e){
             </div>
         </div>
         `
+        e.preventDefault();
         return;
     }
     fetch(`https://disease.sh/v3/covid-19/countries/${searchedCountry}`)
