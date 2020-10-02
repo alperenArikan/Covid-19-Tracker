@@ -33,10 +33,10 @@
         </div>
       </nav>
 
-      <header class="container-fluid">
+      <header class="container-fluid p-4">
           <div class="row d-flex justify-content-center">
               <div class="col-md-8 p-4 text-center">
-                <h1 class="pink-text font-weight-700 p-5">Covid-19 Statistics</h1>
+                <h1 class="pink-text font-weight-bold p-5">Covid-19 Statistics</h1>
                 <h2>Search Countries</h2>
                 <form id="countrySearchForm" class="form-inline input-group md-form form-md form-2 pl-0">
                     <input id="searchedCountry" class="form-control my-0 py-1 " type="text" placeholder="Search Country">
@@ -47,6 +47,7 @@
                   </div>
                 </form>
           </div>
+
           <div class="row  d-flex justify-content-center">
               <div class="col-sm-9 col-md-11 d-flex justify-content-center">
                   <div class="row d-flex justify-content-center" id="countryStatisticCol">
@@ -54,10 +55,35 @@
                     </div>
               </div>
           </div>
-      </header>
-      <section class="vh-100">
 
-      </section>
+      </header>
+      <main>
+        <div id="totalCaseSection" class="container-fluid p-4 pink lighten-1 my-5">
+          <div class="row d-flex justify-content-center  py-5 ">
+            <div class="col-md-8 d-flex justify-content-center flex-column align-items-center">
+              <h2 class="white-text font-weight-bold my-4">Total Corona Virus Cases</h2>
+              <h5 id="total-cases-worldwide" class="white-text font-weight-bold my-4"></h5>
+              <p id="total-cases-worldwide-confirmed" class="text-white font-weight-bold">Confirmed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-sm p-4 text-center" id="countryTableSection">
+          <h3 class="pink-text font-weight-bold mb-4"> Most Affected Countries</h3>
+          <table class="table my-5">
+            <thead>
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">Total Cases</th>
+                <th scope="col">Recovered</th>
+                <th scope="col">Total Deaths</th>
+              </tr>
+            </thead>
+            <tbody id="countryTableBody">
+
+            </tbody>
+          </table>
+      </main>
 
 
 

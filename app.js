@@ -1,9 +1,49 @@
 const countryStatisticCol = document.getElementById("countryStatisticCol");
 const countrySearchForm = document.getElementById("countrySearchForm");
-
+const totalCasesWorldwideSection = document.getElementById("total-cases-worldwide");
+const countryStatisticsTable = document.getElementById("countryTableBody");
 
 countrySearchForm.addEventListener("submit",getSpecsificData);
+document.addEventListener("DOMContentLoaded",getTotalCases);
+document.addEventListener("DOMContentLoaded", getTableStatistics);
 
+function getTotalCases(){
+    fetch("https://disease.sh/v3/covid-19/all")
+    .then(response =>{
+        return response.json();
+    })
+    .then(data =>{
+        const totalCasesWorldwide = new Intl.NumberFormat().format(data.cases);
+        totalCasesWorldwideSection.textContent = totalCasesWorldwide;
+    })
+}
+
+function getTableStatistics(){
+    fetch("https://disease.sh/v3/covid-19/countries?sort=cases")
+    .then(response =>{
+        return response.json();
+    })
+    .then(data => {
+        for(i=0; i<10; i++){
+            const flag = data[i].countryInfo.flag;
+            const country = data[i].country;
+            const totalCases = new Intl.NumberFormat().format(data[i].cases); 
+            const recovered = new Intl.NumberFormat().format(data[i].recovered);
+            const deaths = new Intl.NumberFormat().format(data[i].deaths);
+
+            countryStatisticsTable.innerHTML += `
+            <tr>
+                <th scope="row" class="text-muted"><img src="${flag}"/>  (${country})</th>
+                <td>${totalCases}</td>
+                <td>${recovered}</td>
+                <td>${deaths}</td>
+              </tr>
+            
+            `
+        }
+
+    })
+}
 
 function getSpecsificData(e){
     const searchedCountry = document.getElementById("searchedCountry").value;
@@ -29,10 +69,9 @@ function getSpecsificData(e){
     }
     fetch(`https://disease.sh/v3/covid-19/countries/${searchedCountry}`)
     .then(function(response){
-        if(response.status == 404){
+        if(!response.ok){
             return
         }
-        console.log(response);
         return response.json();
     })
     .then(data =>{
@@ -53,9 +92,9 @@ function getSpecsificData(e){
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by Freepik</a>
         </div>
-        <div class="card-body card-body-cascade">
-          <h5 class="pink-text pb-2 pt-1">Total Cases</h5>
-          <p class="card-text">${totalCases}</p>
+        <div class="card-body card-body-cascade pink lighten-1">
+          <h5 class="white-text pb-2 pt-1">Total Cases</h5>
+          <p class="white-text card-text">${totalCases}</p>
         </div>
     </div>
 </div>
@@ -69,9 +108,9 @@ function getSpecsificData(e){
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a>
         </div>
-        <div class="card-body card-body-cascade">
-          <h5 class="pink-text pb-2 pt-1"> Recovered</h5>
-          <p class="card-text">${recovered}</p>
+        <div class="card-body card-body-cascade pink lighten-1">
+          <h5 class="white-text pb-2 pt-1"> Recovered</h5>
+          <p class="white-text card-text">${recovered}</p>
         </div>
     </div>
 </div>
@@ -86,9 +125,9 @@ function getSpecsificData(e){
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by Freepik</a>
         </div>
-        <div class="card-body card-body-cascade">
-          <h5 class="pink-text pb-2 pt-1">Cases Today</h5>
-          <p class="card-text">${todayCases}</p>
+        <div class="card-body card-body-cascade pink lighten-1">
+          <h5 class="white-text pb-2 pt-1">Cases Today</h5>
+          <p class="white-text card-text">${todayCases}</p>
         </div>
     </div>
 </div>
@@ -103,9 +142,9 @@ function getSpecsificData(e){
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by upklyak / Freepik</a>
         </div>
-        <div class="card-body card-body-cascade">
-          <h5 class="black-text pb-2 pt-1">Total Deaths</h5>
-          <p class="card-text">${deaths}</p>
+        <div class="card-body card-body-cascade elegant-color">
+          <h5 class="white-text pb-2 pt-1">Total Deaths</h5>
+          <p class="white-text card-text">${deaths}</p>
         </div>
     </div>
 </div>
