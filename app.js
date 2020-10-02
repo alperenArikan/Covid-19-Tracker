@@ -30,7 +30,7 @@ function getSpecsificData(e){
     <div class="col-md-4 col-lg-3 pb-4">
     <div class="card card-cascade">
         <div class="view view-cascade overlay text-center">
-          <img class="card-img-top" src="/img/3622110.png"
+          <img class="card-img-top" src="/img/3622110.jpg"
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by Freepik</a>
         </div>
@@ -46,7 +46,7 @@ function getSpecsificData(e){
 <div class="col-md-4 col-lg-3  pb-4">
     <div class="card card-cascade">
         <div class="view view-cascade overlay text-center">
-          <img class="card-img-top" src="/img/3959220.png"
+          <img class="card-img-top" src="/img/3959220.jpg"
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a>
         </div>
@@ -63,7 +63,7 @@ function getSpecsificData(e){
 <div class="col-md-4 col-lg-3  pb-4">
     <div class="card card-cascade">
         <div class="view view-cascade overlay text-center">
-          <img class="card-img-top" src="/img/3707125.png"
+          <img class="card-img-top" src="/img/3707125.jpg"
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by Freepik</a>
         </div>
@@ -80,7 +80,7 @@ function getSpecsificData(e){
 <div class="col-md-4 col-lg-3  pb-4">
     <div class="card card-cascade">
         <div class="view view-cascade overlay text-center">
-          <img class="card-img-top" src="/img/342.png"
+          <img class="card-img-top" src="/img/342.jpg"
             alt="Card image cap">
             <a class = "text-muted font-italic font-weight-lighter"href="http://www.freepik.com">Designed by upklyak / Freepik</a>
         </div>
