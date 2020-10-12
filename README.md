@@ -1,6 +1,6 @@
 # Covid-19-Tracker
 
-Mini application that using fetch api to collect covid-19 data.
+https://covid-19-tracker-virid.vercel.app/
 
 CSS Framework: [MDB](https://mdbootstrap.com/)
 
